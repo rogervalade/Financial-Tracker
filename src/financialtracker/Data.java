@@ -26,8 +26,6 @@ public class Data
             FileWriter out = new FileWriter(file, true);
             out.write(i.toString() + "\n");
             out.close();
-
-            System.out.println("Wrote to the file: " + i.toString());
         }
         catch (IOException e)
         {
