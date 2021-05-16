@@ -11,19 +11,33 @@ public class Data
 {
     //File path is temporarily set to desktop
     private File desktop = new File(System.getProperty("user.home"), "/Desktop");
-    private String fileName = "Data.txt";
-    private File file = new File(desktop, fileName);
+
+    private String incomeFileName = "Income.txt";
+    private File incomeFile = new File(desktop, incomeFileName);
+
+    private String expenseFileName = "Expense.txt";
+    private File expenseFile = new File(desktop, expenseFileName);
 
 
 
-    public void store(Object i)
+    public void storeIncome(Object i)
+    {
+        store(i, incomeFile);
+    }
+
+    public void storeExpense(Object i)
+    {
+        store(i, expenseFile);
+    }
+
+    private void store(Object i, File f)
     {
         try
         {
-            if (!file.exists())
-                file.createNewFile();
+            if (!f.exists())
+                f.createNewFile();
 
-            FileWriter out = new FileWriter(file, true);
+            FileWriter out = new FileWriter(f, true);
             out.write(i.toString() + "\n");
             out.close();
         }
@@ -35,14 +49,24 @@ public class Data
 
 
 
-    public ArrayList<Object> read()
+    public ArrayList<Object> readIncome()
+    {
+        return read(incomeFile);
+    }
+
+    public ArrayList<Object> readExpense()
+    {
+        return read(expenseFile);
+    }
+
+    private ArrayList<Object> read(File f)
     {
         ArrayList<Object> data = new ArrayList<>();
         int i = 0;
 
         try
         {
-            Scanner in = new Scanner(file);
+            Scanner in = new Scanner(f);
             while (in.hasNext())
             {
                 data.add(in.nextLine());
