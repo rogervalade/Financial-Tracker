@@ -23,7 +23,7 @@ public class Income
     }
     
     public void setIncome(double newIncome) {
-        assert(newIncome >= 0.0) : "Income cannot be negative";
+        assert(newIncome >= 0.0) : "newIncome cannot be negative";
         this.income = newIncome;
     }
     
@@ -32,7 +32,7 @@ public class Income
     }
     
     public void setWage(double newWage) {
-        assert(newWage >= 0.0) : "Wage cannot be negative";
+        assert(newWage >= 0.0) : "newWage cannot be negative";
         this.wage = newWage;
     }
     
