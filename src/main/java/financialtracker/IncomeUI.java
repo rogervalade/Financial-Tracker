@@ -511,7 +511,7 @@ int x,y;
     private javax.swing.JPanel btn_3;
     private javax.swing.JPanel btn_4;
     private javax.swing.JPanel btn_5;
-    private com.toedter.calendar.JCalendar jCalendar2;
+    //private com.toedter.calendar.JCalendar jCalendar2;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

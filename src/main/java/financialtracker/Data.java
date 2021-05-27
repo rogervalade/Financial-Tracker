@@ -18,6 +18,9 @@ public class Data
     private String expenseFileName = "Expense.txt";
     private File expenseFile = new File(desktop, expenseFileName);
 
+    private String stockFileName = "Stocks.txt";
+    private File stockFile = new File(desktop, stockFileName);
+
 
 
     public void storeIncome(Object i)
@@ -28,6 +31,11 @@ public class Data
     public void storeExpense(Object i)
     {
         store(i, expenseFile);
+    }
+
+    public void storeStock(Object i)
+    {
+        store(i, stockFile);
     }
 
     private void store(Object i, File f)
@@ -57,6 +65,11 @@ public class Data
     public ArrayList<Object> readExpense()
     {
         return read(expenseFile);
+    }
+
+    public ArrayList<Object> readStock()
+    {
+        return read(stockFile);
     }
 
     private ArrayList<Object> read(File f)

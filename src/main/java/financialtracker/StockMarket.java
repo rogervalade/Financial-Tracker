@@ -12,6 +12,8 @@ import static financialtracker.CoinMarketCapApi.makeAPICall;
 
 public class StockMarket
 {
+    private Data data = new Data();
+
     public double getStockPrice(String symbol)
     {
         String uri = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/info";
@@ -74,6 +76,25 @@ public class StockMarket
         }
 
         return price;
+    }
+
+    public void buyStock(String symbol, double amount)
+    {
+        double stockPrice = getStockPrice(symbol);
+
+        double price = amount * stockPrice;
+
+        data.storeStock(symbol);
+        data.storeStock(amount);
+        data.storeStock(stockPrice);
+        data.storeStock(price);
+    }
+
+    public void sellStock(String symbol, double amount)
+    {
+        double stockPrice = getStockPrice(symbol);
+
+        double price = amount * stockPrice;
     }
 }
 
