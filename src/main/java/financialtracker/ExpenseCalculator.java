@@ -15,7 +15,7 @@ public class ExpenseCalculator
 
         int weeklyExpense = 0;
 
-        FileReader fileReader = new FileReader("D:\\expenses.txt");
+        /*FileReader fileReader = new FileReader("D:\\expenses.txt");
 
         BufferedReader brReadFile = new BufferedReader(fileReader);
         String singleLineText = null;
@@ -39,7 +39,7 @@ public class ExpenseCalculator
         }
 
         System.out.println("\n\nYou have spent Rs :"+ weeklyExpense+ " this week!");
-        brReadFile.close();
+        brReadFile.close();*/
 
         System.out.println("\n\nEnd of program ....");
     }

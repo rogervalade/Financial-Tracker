@@ -3,6 +3,7 @@ package financialtracker;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -81,7 +82,6 @@ public class StockMarket
     public void buyStock(String symbol, double amount)
     {
         double stockPrice = getStockPrice(symbol);
-
         double price = amount * stockPrice;
 
         data.storeStock(symbol);
@@ -90,11 +90,64 @@ public class StockMarket
         data.storeStock(price);
     }
 
-    public void sellStock(String symbol, double amount)
+    private void buyStock(String symbol, double amount, double value)
     {
         double stockPrice = getStockPrice(symbol);
 
+        data.storeStock(symbol);
+        data.storeStock(amount);
+        data.storeStock(stockPrice);
+        data.storeStock(value);
+    }
+
+    public double sellStock(String symbol, double amount) throws FileNotFoundException
+    {
+        double stockPrice = getStockPrice(symbol);
         double price = amount * stockPrice;
+
+        double owned = 0;
+        double valued = 0;
+
+        ArrayList<Object> stock = data.readStock();
+        int line = 1;
+
+        if (data.readStock().isEmpty())
+            return -1.0;
+
+        while (line < data.readStock().size())
+        {
+            owned = owned + Double.parseDouble(String.valueOf(stock.get(line)));
+
+            line = line + 4;
+        }
+
+        line = 3;
+
+        while (line < data.readStock().size())
+        {
+            valued = valued + Double.parseDouble(String.valueOf(stock.get(line)));
+
+            line = line + 4;
+        }
+
+        if (amount > owned)
+            return -1.0;
+
+        double salePrice = getStockPrice(symbol) * amount;
+
+        //Remove all data from stock file
+        //subtract the amount selling from the amount owned
+        //replace the data in the file with a new entry
+        this.data.clearFile(this.data.stockFile);
+
+        if (!(amount == owned))
+        {
+            double own = owned - amount;
+            double value = valued - getStockPrice(symbol) * amount;
+            buyStock(symbol, own, value);
+        }
+
+        return salePrice;
     }
 }
 

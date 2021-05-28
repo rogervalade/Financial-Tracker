@@ -1,9 +1,6 @@
 package financialtracker;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,13 +10,13 @@ public class Data
     private File desktop = new File(System.getProperty("user.home"), "/Desktop");
 
     private String incomeFileName = "Income.txt";
-    private File incomeFile = new File(desktop, incomeFileName);
+    public File incomeFile = new File(desktop, incomeFileName);
 
     private String expenseFileName = "Expense.txt";
-    private File expenseFile = new File(desktop, expenseFileName);
+    public File expenseFile = new File(desktop, expenseFileName);
 
     private String stockFileName = "Stocks.txt";
-    private File stockFile = new File(desktop, stockFileName);
+    public File stockFile = new File(desktop, stockFileName);
 
 
 
@@ -53,6 +50,120 @@ public class Data
         {
             e.printStackTrace();
         }
+    }
+
+
+
+    private void overwriteIncomeExpense(ArrayList<Object> i, File f, Object o)
+    {
+        try
+        {
+            if (!f.exists())
+                f.createNewFile();
+
+            FileWriter out = new FileWriter(f, true);
+
+            int index = 0;
+            boolean deleted = false;
+
+            //Loop through all objects
+            //If the object is not equal to the object we want to remove then write to the file
+            for (int j = 0; j < i.size(); j++)
+            {
+                if (!i.get(j).toString().equals(o.toString()))
+                    out.write(i.get(j).toString() + "\n");
+                else
+                    break;
+            }
+
+            out.close();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    private void overwriteStock(ArrayList<Object> i, File f, Object o)
+    {
+        try
+        {
+            if (!f.exists())
+                f.createNewFile();
+
+            FileWriter out = new FileWriter(f, true);
+
+            int index = 0;
+            boolean deleted = false;
+
+            //Loop through all objects
+            //If the object is not equal to the object we want to remove then write to the file
+            for (int j = 0; j < i.size(); j++)
+            {
+                if (i.get(j).toString().equals(o.toString()))
+                {
+                    System.out.println(i.get(j).toString());
+                    index = i.indexOf(i.get(j));
+                    System.out.println(index);
+                    break;
+                }
+            }
+
+            for (int j = 0; j < i.size(); j++)
+            {
+                if (!(j >= (index - 1) && j <= (index + 2)))
+                {
+                    out.write(i.get(j).toString() + "\n");
+                }
+            }
+
+            out.close();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+
+
+    public void removeIncome(Object i) throws FileNotFoundException
+    {
+        ArrayList<Object> data = read(stockFile);
+
+        clearFile(incomeFile);
+
+        overwriteIncomeExpense(data, stockFile, i);
+    }
+
+    public void removeExpense(Object i) throws FileNotFoundException
+    {
+        ArrayList<Object> data = read(stockFile);
+
+        clearFile(expenseFile);
+
+        overwriteIncomeExpense(data, stockFile, i);
+    }
+
+    public void removeStock(Object i) throws FileNotFoundException
+    {
+        //Store the original data
+        ArrayList<Object> data = read(stockFile);
+
+        //Clear the file
+        PrintWriter writer = new PrintWriter(stockFile);
+        writer.print("");
+        writer.close();
+
+        //Store all the data except the object we want to remove
+        overwriteStock(data, stockFile, i);
+    }
+
+    public void clearFile(File f) throws FileNotFoundException
+    {
+        PrintWriter writer = new PrintWriter(f);
+        writer.print("");
+        writer.close();
     }
 
 
