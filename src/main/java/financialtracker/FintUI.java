@@ -23,8 +23,8 @@ public class FintUI extends javax.swing.JFrame {
         initComponents();
         
         //When the Program is started, the first window is Home. 
-
-        Home window = new Home();
+        
+        Home window = new Home ();
         SwitchWindow.add(window).setVisible(true);
     }
 
@@ -39,16 +39,12 @@ public class FintUI extends javax.swing.JFrame {
 
         SidePanel = new javax.swing.JPanel();
         HomePanel = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
         HomeLabel = new javax.swing.JLabel();
         IncomePanel = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
         IncomeLabel = new javax.swing.JLabel();
         ExpensePanel = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
         ExpenseLabel = new javax.swing.JLabel();
         StocksPanel = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
         StocksLabel = new javax.swing.JLabel();
         TopPanel = new javax.swing.JPanel();
         EixtLabel = new javax.swing.JLabel();
@@ -60,8 +56,6 @@ public class FintUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1000, 500));
-        //getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         SidePanel.setBackground(new java.awt.Color(23, 35, 51));
         SidePanel.setPreferredSize(new java.awt.Dimension(110, 500));
@@ -78,28 +72,26 @@ public class FintUI extends javax.swing.JFrame {
                 HomePanelMousePressed(evt);
             }
         });
-        //HomePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel2.setBackground(new java.awt.Color(23, 35, 51));
-        jPanel2.setPreferredSize(new java.awt.Dimension(3, 45));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
-        );
-
-        //HomePanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 50));
 
         HomeLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         HomeLabel.setForeground(new java.awt.Color(255, 255, 255));
         HomeLabel.setText("HOME");
-        //HomePanel.add(HomeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 11, -1, -1));
+
+        javax.swing.GroupLayout HomePanelLayout = new javax.swing.GroupLayout(HomePanel);
+        HomePanel.setLayout(HomePanelLayout);
+        HomePanelLayout.setHorizontalGroup(
+            HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HomePanelLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(HomeLabel))
+        );
+        HomePanelLayout.setVerticalGroup(
+            HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HomePanelLayout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addComponent(HomeLabel)
+                .addGap(19, 19, 19))
+        );
 
         IncomePanel.setBackground(new java.awt.Color(23, 35, 51));
         IncomePanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -113,28 +105,26 @@ public class FintUI extends javax.swing.JFrame {
                 IncomePanelMousePressed(evt);
             }
         });
-        //IncomePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel3.setBackground(new java.awt.Color(23, 35, 51));
-        jPanel3.setPreferredSize(new java.awt.Dimension(3, 45));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
-        );
-
-        //IncomePanel.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 50));
 
         IncomeLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         IncomeLabel.setForeground(new java.awt.Color(255, 255, 255));
         IncomeLabel.setText("INCOME");
-        //IncomePanel.add(IncomeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        javax.swing.GroupLayout IncomePanelLayout = new javax.swing.GroupLayout(IncomePanel);
+        IncomePanel.setLayout(IncomePanelLayout);
+        IncomePanelLayout.setHorizontalGroup(
+            IncomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(IncomePanelLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(IncomeLabel))
+        );
+        IncomePanelLayout.setVerticalGroup(
+            IncomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(IncomePanelLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(IncomeLabel)
+                .addGap(20, 20, 20))
+        );
 
         ExpensePanel.setBackground(new java.awt.Color(23, 35, 51));
         ExpensePanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -148,28 +138,27 @@ public class FintUI extends javax.swing.JFrame {
                 ExpensePanelMousePressed(evt);
             }
         });
-        //ExpensePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel4.setBackground(new java.awt.Color(23, 35, 51));
-        jPanel4.setPreferredSize(new java.awt.Dimension(3, 45));
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
-        );
-
-        //ExpensePanel.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 50));
 
         ExpenseLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ExpenseLabel.setForeground(new java.awt.Color(255, 255, 255));
         ExpenseLabel.setText("EXPENSES");
-        //ExpensePanel.add(ExpenseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        javax.swing.GroupLayout ExpensePanelLayout = new javax.swing.GroupLayout(ExpensePanel);
+        ExpensePanel.setLayout(ExpensePanelLayout);
+        ExpensePanelLayout.setHorizontalGroup(
+            ExpensePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ExpensePanelLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(ExpenseLabel)
+                .addGap(96, 96, 96))
+        );
+        ExpensePanelLayout.setVerticalGroup(
+            ExpensePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ExpensePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(ExpenseLabel)
+                .addGap(19, 19, 19))
+        );
 
         StocksPanel.setBackground(new java.awt.Color(23, 35, 51));
         StocksPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -183,28 +172,26 @@ public class FintUI extends javax.swing.JFrame {
                 StocksPanelMousePressed(evt);
             }
         });
-        //StocksPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel5.setBackground(new java.awt.Color(23, 35, 51));
-        jPanel5.setPreferredSize(new java.awt.Dimension(3, 45));
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
-        );
-
-        //StocksPanel.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 50));
 
         StocksLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         StocksLabel.setForeground(new java.awt.Color(255, 255, 255));
         StocksLabel.setText("STOCKS");
-        //StocksPanel.add(StocksLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        javax.swing.GroupLayout StocksPanelLayout = new javax.swing.GroupLayout(StocksPanel);
+        StocksPanel.setLayout(StocksPanelLayout);
+        StocksPanelLayout.setHorizontalGroup(
+            StocksPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(StocksPanelLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(StocksLabel))
+        );
+        StocksPanelLayout.setVerticalGroup(
+            StocksPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(StocksPanelLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(StocksLabel)
+                .addGap(20, 20, 20))
+        );
 
         javax.swing.GroupLayout SidePanelLayout = new javax.swing.GroupLayout(SidePanel);
         SidePanel.setLayout(SidePanelLayout);
@@ -231,8 +218,6 @@ public class FintUI extends javax.swing.JFrame {
                 .addComponent(StocksPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(192, Short.MAX_VALUE))
         );
-
-        //getContentPane().add(SidePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         TopPanel.setBackground(new java.awt.Color(71, 120, 197));
         TopPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
@@ -276,13 +261,11 @@ public class FintUI extends javax.swing.JFrame {
             TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TopPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(EixtLabel))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
-
-        //getContentPane().add(TopPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, -1, -1));
 
         MisPanel.setBackground(new java.awt.Color(71, 120, 197));
         MisPanel.setPreferredSize(new java.awt.Dimension(230, 450));
@@ -293,7 +276,6 @@ public class FintUI extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("CALENDAR");
-        jLabel2.setPreferredSize(new java.awt.Dimension(127, 32));
 
         javax.swing.GroupLayout MisTitlePanelLayout = new javax.swing.GroupLayout(MisTitlePanel);
         MisTitlePanel.setLayout(MisTitlePanelLayout);
@@ -301,7 +283,7 @@ public class FintUI extends javax.swing.JFrame {
             MisTitlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MisTitlePanelLayout.createSequentialGroup()
                 .addGap(49, 49, 49)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2)
                 .addContainerGap(54, Short.MAX_VALUE))
         );
         MisTitlePanelLayout.setVerticalGroup(
@@ -324,8 +306,6 @@ public class FintUI extends javax.swing.JFrame {
                 .addGap(0, 391, Short.MAX_VALUE))
         );
 
-        //getContentPane().add(MisPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, -1));
-
         javax.swing.GroupLayout SwitchWindowLayout = new javax.swing.GroupLayout(SwitchWindow);
         SwitchWindow.setLayout(SwitchWindowLayout);
         SwitchWindowLayout.setHorizontalGroup(
@@ -337,7 +317,28 @@ public class FintUI extends javax.swing.JFrame {
             .addGap(0, 450, Short.MAX_VALUE)
         );
 
-        //getContentPane().add(SwitchWindow, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 660, 450));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(SidePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(MisPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(SwitchWindow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(SidePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(TopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(MisPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SwitchWindow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -465,9 +466,5 @@ int x,y;
     private javax.swing.JPanel TopPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     // End of variables declaration//GEN-END:variables
 }
