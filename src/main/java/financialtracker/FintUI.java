@@ -1,4 +1,4 @@
-
+package financialtracker;
 
 import java.awt.*;
 import javax.swing.*;
@@ -23,8 +23,8 @@ public class FintUI extends javax.swing.JFrame {
         initComponents();
         
         //When the Program is started, the first window is Home. 
-        
-        Home window = new Home ();
+
+        Home window = new Home();
         SwitchWindow.add(window).setVisible(true);
     }
 
@@ -61,7 +61,7 @@ public class FintUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(1000, 500));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        //getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         SidePanel.setBackground(new java.awt.Color(23, 35, 51));
         SidePanel.setPreferredSize(new java.awt.Dimension(110, 500));
@@ -78,7 +78,7 @@ public class FintUI extends javax.swing.JFrame {
                 HomePanelMousePressed(evt);
             }
         });
-        HomePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        //HomePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(23, 35, 51));
         jPanel2.setPreferredSize(new java.awt.Dimension(3, 45));
@@ -94,12 +94,12 @@ public class FintUI extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
-        HomePanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 50));
+        //HomePanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 50));
 
         HomeLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         HomeLabel.setForeground(new java.awt.Color(255, 255, 255));
         HomeLabel.setText("HOME");
-        HomePanel.add(HomeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 11, -1, -1));
+        //HomePanel.add(HomeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 11, -1, -1));
 
         IncomePanel.setBackground(new java.awt.Color(23, 35, 51));
         IncomePanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -113,7 +113,7 @@ public class FintUI extends javax.swing.JFrame {
                 IncomePanelMousePressed(evt);
             }
         });
-        IncomePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        //IncomePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(23, 35, 51));
         jPanel3.setPreferredSize(new java.awt.Dimension(3, 45));
@@ -129,12 +129,12 @@ public class FintUI extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
-        IncomePanel.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 50));
+        //IncomePanel.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 50));
 
         IncomeLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         IncomeLabel.setForeground(new java.awt.Color(255, 255, 255));
         IncomeLabel.setText("INCOME");
-        IncomePanel.add(IncomeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        //IncomePanel.add(IncomeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         ExpensePanel.setBackground(new java.awt.Color(23, 35, 51));
         ExpensePanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -148,7 +148,7 @@ public class FintUI extends javax.swing.JFrame {
                 ExpensePanelMousePressed(evt);
             }
         });
-        ExpensePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        //ExpensePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setBackground(new java.awt.Color(23, 35, 51));
         jPanel4.setPreferredSize(new java.awt.Dimension(3, 45));
@@ -164,12 +164,12 @@ public class FintUI extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
-        ExpensePanel.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 50));
+        //ExpensePanel.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 50));
 
         ExpenseLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ExpenseLabel.setForeground(new java.awt.Color(255, 255, 255));
         ExpenseLabel.setText("EXPENSES");
-        ExpensePanel.add(ExpenseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        //ExpensePanel.add(ExpenseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         StocksPanel.setBackground(new java.awt.Color(23, 35, 51));
         StocksPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -183,7 +183,7 @@ public class FintUI extends javax.swing.JFrame {
                 StocksPanelMousePressed(evt);
             }
         });
-        StocksPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        //StocksPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel5.setBackground(new java.awt.Color(23, 35, 51));
         jPanel5.setPreferredSize(new java.awt.Dimension(3, 45));
@@ -199,12 +199,12 @@ public class FintUI extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
-        StocksPanel.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 50));
+        //StocksPanel.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 50));
 
         StocksLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         StocksLabel.setForeground(new java.awt.Color(255, 255, 255));
         StocksLabel.setText("STOCKS");
-        StocksPanel.add(StocksLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        //StocksPanel.add(StocksLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         javax.swing.GroupLayout SidePanelLayout = new javax.swing.GroupLayout(SidePanel);
         SidePanel.setLayout(SidePanelLayout);
@@ -232,7 +232,7 @@ public class FintUI extends javax.swing.JFrame {
                 .addContainerGap(192, Short.MAX_VALUE))
         );
 
-        getContentPane().add(SidePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        //getContentPane().add(SidePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         TopPanel.setBackground(new java.awt.Color(71, 120, 197));
         TopPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
@@ -282,7 +282,7 @@ public class FintUI extends javax.swing.JFrame {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        getContentPane().add(TopPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, -1, -1));
+        //getContentPane().add(TopPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, -1, -1));
 
         MisPanel.setBackground(new java.awt.Color(71, 120, 197));
         MisPanel.setPreferredSize(new java.awt.Dimension(230, 450));
@@ -324,7 +324,7 @@ public class FintUI extends javax.swing.JFrame {
                 .addGap(0, 391, Short.MAX_VALUE))
         );
 
-        getContentPane().add(MisPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, -1));
+        //getContentPane().add(MisPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, -1));
 
         javax.swing.GroupLayout SwitchWindowLayout = new javax.swing.GroupLayout(SwitchWindow);
         SwitchWindow.setLayout(SwitchWindowLayout);
@@ -337,7 +337,7 @@ public class FintUI extends javax.swing.JFrame {
             .addGap(0, 450, Short.MAX_VALUE)
         );
 
-        getContentPane().add(SwitchWindow, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 660, 450));
+        //getContentPane().add(SwitchWindow, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 660, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

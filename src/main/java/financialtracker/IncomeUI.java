@@ -5,9 +5,6 @@
  */
 package financialtracker;
 
-import com.toedter.calendar.JCalendar;
-import financialtracker.Home;
-
 import java.awt.Color;
 import javax.swing.JPanel;
 
@@ -58,7 +55,7 @@ public class IncomeUI extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        JCalendar jCalendar2 = new JCalendar();
+        jCalendar2 = new com.toedter.calendar.JCalendar();
         jDesktopPane1 = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -73,7 +70,7 @@ public class IncomeUI extends javax.swing.JFrame {
                 formMousePressed(evt);
             }
         });
-        //getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         side_pane.setBackground(new java.awt.Color(23, 35, 51));
 
@@ -133,7 +130,7 @@ public class IncomeUI extends javax.swing.JFrame {
                 btn_2MousePressed(evt);
             }
         });
-        //btn_2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btn_2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel8.setOpaque(false);
         jPanel8.setPreferredSize(new java.awt.Dimension(3, 45));
@@ -149,13 +146,13 @@ public class IncomeUI extends javax.swing.JFrame {
             .addGap(0, 45, Short.MAX_VALUE)
         );
 
-        //btn_2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        btn_2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("INCOME");
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        //btn_2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        btn_2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         btn_3.setBackground(new java.awt.Color(23, 35, 51));
         btn_3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -166,7 +163,7 @@ public class IncomeUI extends javax.swing.JFrame {
                 btn_3MousePressed(evt);
             }
         });
-        //btn_3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btn_3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel9.setOpaque(false);
         jPanel9.setPreferredSize(new java.awt.Dimension(3, 45));
@@ -182,13 +179,13 @@ public class IncomeUI extends javax.swing.JFrame {
             .addGap(0, 45, Short.MAX_VALUE)
         );
 
-        //btn_3.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        btn_3.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("EXPENSES");
         jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        //btn_3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        btn_3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         btn_4.setBackground(new java.awt.Color(23, 35, 51));
         btn_4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -199,7 +196,7 @@ public class IncomeUI extends javax.swing.JFrame {
                 btn_4MousePressed(evt);
             }
         });
-        //btn_4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btn_4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel10.setOpaque(false);
         jPanel10.setPreferredSize(new java.awt.Dimension(3, 45));
@@ -215,13 +212,13 @@ public class IncomeUI extends javax.swing.JFrame {
             .addGap(0, 45, Short.MAX_VALUE)
         );
 
-        //btn_4.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        btn_4.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("TAXES");
         jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        //btn_4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        btn_4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         btn_5.setBackground(new java.awt.Color(23, 35, 51));
         btn_5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -232,7 +229,7 @@ public class IncomeUI extends javax.swing.JFrame {
                 btn_5MousePressed(evt);
             }
         });
-        //btn_5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btn_5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel11.setOpaque(false);
         jPanel11.setPreferredSize(new java.awt.Dimension(3, 45));
@@ -248,13 +245,13 @@ public class IncomeUI extends javax.swing.JFrame {
             .addGap(0, 45, Short.MAX_VALUE)
         );
 
-        //btn_5.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        btn_5.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("STOCKS");
         jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        //btn_5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        btn_5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         javax.swing.GroupLayout side_paneLayout = new javax.swing.GroupLayout(side_pane);
         side_pane.setLayout(side_paneLayout);
@@ -282,7 +279,7 @@ public class IncomeUI extends javax.swing.JFrame {
                 .addContainerGap(120, Short.MAX_VALUE))
         );
 
-        //getContentPane().add(side_pane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 500));
+        getContentPane().add(side_pane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 500));
 
         jPanel2.setBackground(new java.awt.Color(71, 120, 197));
 
@@ -316,7 +313,7 @@ public class IncomeUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        //getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 890, 50));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 890, 50));
 
         jPanel3.setBackground(new java.awt.Color(71, 120, 197));
 
@@ -359,7 +356,7 @@ public class IncomeUI extends javax.swing.JFrame {
                 .addGap(0, 196, Short.MAX_VALUE))
         );
 
-        //getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 230, 450));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 230, 450));
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -372,7 +369,7 @@ public class IncomeUI extends javax.swing.JFrame {
             .addGap(0, 450, Short.MAX_VALUE)
         );
 
-        //getContentPane().add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 660, 450));
+        getContentPane().add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 660, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -416,7 +413,7 @@ int x,y;
     private void btn_1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_1MouseClicked
        jDesktopPane1.removeAll();
        
-      Home v = new Home ();
+      Home v = new Home();
       
       jDesktopPane1.add(v).setVisible(true);
     }//GEN-LAST:event_btn_1MouseClicked
@@ -424,7 +421,7 @@ int x,y;
     private void btn_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_2MouseClicked
         jDesktopPane1.removeAll();
        
-      Income.Income v = new Income.Income();
+      Income v = new Income();
       
       jDesktopPane1.add(v).setVisible(true);
     }//GEN-LAST:event_btn_2MouseClicked
@@ -432,7 +429,7 @@ int x,y;
     private void btn_3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_3MouseClicked
         jDesktopPane1.removeAll();
        
-     Income.Purchases v = new Income.Purchases();
+     Purchases v = new Purchases();
       
       jDesktopPane1.add(v).setVisible(true);
     }//GEN-LAST:event_btn_3MouseClicked
@@ -440,7 +437,7 @@ int x,y;
     private void btn_4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_4MouseClicked
           jDesktopPane1.removeAll();
        
-     Income.Taxes v = new Income.Taxes();
+     Taxes v = new Taxes();
       
       jDesktopPane1.add(v).setVisible(true);
     }//GEN-LAST:event_btn_4MouseClicked
@@ -448,7 +445,7 @@ int x,y;
     private void btn_5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_5MouseClicked
         jDesktopPane1.removeAll();
        
-     Income.Stocks v = new Income.Stocks();
+     Stocks v = new Stocks();
       
       jDesktopPane1.add(v).setVisible(true);
     }//GEN-LAST:event_btn_5MouseClicked
