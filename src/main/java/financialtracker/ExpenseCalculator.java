@@ -11,7 +11,7 @@ public class ExpenseCalculator
 * @author brittanyzora
 *
 */
-public class ExpenseCalculator {
+   
    // private instance variables
    private double dailyExpense;
    private double monthlyBills;
