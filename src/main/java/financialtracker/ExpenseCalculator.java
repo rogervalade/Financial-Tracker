@@ -5,42 +5,109 @@ import java.util.ArrayList;
 
 public class ExpenseCalculator
 {
-    public static void main(String[] args ) throws IOException
-    {
-        Data data = new Data();
-        ArrayList<Object> expenses = data.readExpense();
 
+/**
+*
+* @author brittanyzora
+*
+*/
+public class ExpenseCalculator {
+   // private instance variables
+   private double dailyExpense;
+   private double monthlyBills;
+   private double medicalExpense;
+   private double tax;
 
+   /**
+   *
+   * @return dailyExpense
+   */
+   public double getDailyExpense() {
+       return dailyExpense;
+   }
 
+   /**
+   *
+   * @param dailyExpense
+   */
+   public void setDailyExpense(double dailyExpense) {
+       assert (dailyExpense >= 0.0) : "daily expense cannot be negative";
+       this.dailyExpense = dailyExpense;
+   }
 
-        int weeklyExpense = 0;
+   /**
+   *
+   * @return monthlyBills
+   */
+   public double getMonthlyBills() {
+       return monthlyBills;
+   }
 
-        /*FileReader fileReader = new FileReader("D:\\expenses.txt");
+   /**
+   *
+   * @param monthlyBills
+   */
+   public void setMonthlyBills(double monthlyBills) {
+       assert (monthlyBills >= 0.0) : "monthly bills cannot be negative";
+       this.monthlyBills = monthlyBills;
+   }
 
-        BufferedReader brReadFile = new BufferedReader(fileReader);
-        String singleLineText = null;
+   /**
+   *
+   * @return medicalExpense
+   */
+   public double getMedicalExpense() {
+       return medicalExpense;
+   }
 
-        System.out.println("Expense Calculator :");
-        System.out.println("\t Day \tTotal Expenses ");
-        System.out.println("\t --- ----------------");
+   /**
+   *
+   * @param medicalExpense
+   */
+   public void setMedicalExpense(double medicalExpense) {
+       assert (medicalExpense >= 0.0) : "medicalExpense cannot be negative";
+       this.medicalExpense = medicalExpense;
+   }
 
-        while((singleLineText = brReadFile.readLine()) != null)
-        {
-            String[] extractData = singleLineText.split(",");
-            System.out.print("\t"+ extractData[0]);
+   /**
+   *
+   * @return tax
+   */
+   public double getTax() {
+       return tax;
+   }
 
-            int totalExpensePerDay = 0;
-            for(int i=1;i< extractData.length;i++)
-                totalExpensePerDay += Integer.parseInt(extractData[i]);
+   /**
+   *
+   * @param tax
+   */
+   public void setTax(double tax) {
+       assert (tax >= 0.0) : "tax cannot be negative";
+       this.tax = tax;
+   }
 
-            System.out.println("\t" + totalExpensePerDay);
-            weeklyExpense += totalExpensePerDay;
+   /**
+   *
+   * @param dailyExpense
+   * @param monthlyBills
+   * @param medicalExpense
+   * @param tax
+   */
+   public void updateExpense(double dailyExpense, double monthlyBills, double medicalExpense, double tax) {
+       this.dailyExpense += dailyExpense;
+       this.monthlyBills += monthlyBills;
+       this.medicalExpense += medicalExpense;
+       this.tax += tax;
+   }
 
-        }
-
-        System.out.println("\n\nYou have spent Rs :"+ weeklyExpense+ " this week!");
-        brReadFile.close();*/
-
-        System.out.println("\n\nEnd of program ....");
-    }
+   /**
+   *
+   * @return total expense = sum of dailyExpense,monthlyBills,medicalExpense and
+   * tax
+   */
+   public double getTotalExpense() {
+       double totalExpense = 0;
+       totalExpense = getDailyExpense() + getMonthlyBills() + getMedicalExpense() + getTax();
+       return totalExpense;
+   }
 }
