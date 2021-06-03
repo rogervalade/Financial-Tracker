@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Income;
+package financialtracker;
 
 /**
  *
@@ -11,9 +11,9 @@ package Income;
  */
 public class IncomeCalculator {
 
-    private double income = 0.0;
-    private double wage = 0.0;
-    protected double[] hours = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+    private double income;
+    private double wage;
+    protected double[] hours = new double [7];
     private double overtimeMult = 1.5;
 
     public double getIncome() {
@@ -52,16 +52,19 @@ public class IncomeCalculator {
         this.overtimeMult = newOvertime;
     }
 
-    public void updateIncome(double wage, double overtimeMult) {
+    public void updateIncome(double wage, double[] tempHours) 
+    {
         income = 0.0;
-        for (int i = 0; i < hours.length; i++) {
-            double tempHours = hours[i];
-            if (hours[i] > 8) {
-                double overtime = hours[i] - 8.0;
-                tempHours -= overtime;
-                income += (overtime * wage * overtimeMult);
+        for (int i = 0; i < tempHours.length; i++) 
+        {
+            double currentHours = tempHours[i];
+            if (tempHours[i] > 8) 
+            {
+                double overtime = tempHours[i] - 8.0;
+                currentHours -= overtime;
+                income += (overtime * wage * getOvertime());
             }
-            income += (tempHours * wage);
+            income += (currentHours * wage);
         }
     }
 

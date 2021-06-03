@@ -11,5 +11,14 @@ public class FinancialTracker
                 new FintUI().setVisible(true);
             }
         });
+        
+        
+       StockMarket s = new StockMarket(); 
+       
     }
+    
+    
+    
+   
+    
 }

@@ -6,14 +6,19 @@ package financialtracker;/*
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
-
+import java.text.NumberFormat;
 /**
  *
  * @author shubh
  */
 public class Income extends javax.swing.JInternalFrame {
+   
 
+  IncomeCalculator tmp = new IncomeCalculator();
+  NumberFormat fmt = NumberFormat.getCurrencyInstance();
   
 
     public Income() {
@@ -71,7 +76,10 @@ public class Income extends javax.swing.JInternalFrame {
 
         jButton1.setBackground(new java.awt.Color(47, 70, 103));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Calculate");
+        jButton1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -80,40 +88,55 @@ public class Income extends javax.swing.JInternalFrame {
 
         jButton2.setBackground(new java.awt.Color(47, 70, 103));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Clear");
+        jButton2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        WageTxtField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                WageTxtFieldActionPerformed(evt);
-            }
-        });
+        WageTxtField.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
+        HoursWorked.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         HoursWorked.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HoursWorkedActionPerformed(evt);
             }
         });
 
+        WeeklyIncome.setEditable(false);
+        WeeklyIncome.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Estimated Monthly Income:");
+
+        MonthlyIncome.setEditable(false);
+        MonthlyIncome.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Estimated Yearly Income:");
 
+        YearlyIncome.setEditable(false);
+        YearlyIncome.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Estimated Federal Tax:");
 
+        FederalTax.setEditable(false);
+        FederalTax.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Estimated State Tax:");
+
+        StateTax.setEditable(false);
+        StateTax.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -161,10 +184,10 @@ public class Income extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                    .addComponent(WageTxtField))
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(WageTxtField, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
                 .addGap(29, 29, 29)
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(HoursWorked, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -208,14 +231,6 @@ public class Income extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void WageTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WageTxtFieldActionPerformed
-    
-          
-        
-        
-        
-    }//GEN-LAST:event_WageTxtFieldActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         FederalTax.setText("");
         HoursWorked.setText("");
@@ -229,15 +244,37 @@ public class Income extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+      
+        double x = Double.parseDouble(WageTxtField.getText());
+//         tmp.setWage(x);
+         
+         
+         
 
+       
+         
+       String s = HoursWorked.getText();
+        String [] srevised = s.split(",", -2);
+        double [] num = {0.0,0.0,0.0,0.0,0.0,0.0,0.0};
+                
+       for (int i=0; i <srevised.length; i++){
+          num [i] = Double.parseDouble(srevised[i]);
+       }
+       
+//       tmp.setHours(num); 
+       tmp.updateIncome(x, num);
+       
+       double y = tmp.getIncome();
+       
+       WeeklyIncome.setText(String.valueOf(fmt.format(y)));
+            
+      
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void HoursWorkedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HoursWorkedActionPerformed
-         
+       
       
-     
-        
-            
     }//GEN-LAST:event_HoursWorkedActionPerformed
 
 

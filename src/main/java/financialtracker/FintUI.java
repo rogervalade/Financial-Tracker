@@ -52,6 +52,7 @@ public class FintUI extends javax.swing.JFrame {
         MisPanel = new javax.swing.JPanel();
         MisTitlePanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jCalendar1 = new com.toedter.calendar.JCalendar();
         SwitchWindow = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -291,19 +292,25 @@ public class FintUI extends javax.swing.JFrame {
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
         );
 
+        jCalendar1.setBackground(new java.awt.Color(120, 168, 252));
+
         javax.swing.GroupLayout MisPanelLayout = new javax.swing.GroupLayout(MisPanel);
         MisPanel.setLayout(MisPanelLayout);
         MisPanelLayout.setHorizontalGroup(
             MisPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MisPanelLayout.createSequentialGroup()
-                .addComponent(MisTitlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(MisPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jCalendar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(MisTitlePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         MisPanelLayout.setVerticalGroup(
             MisPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MisPanelLayout.createSequentialGroup()
                 .addComponent(MisTitlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 391, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 211, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout SwitchWindowLayout = new javax.swing.GroupLayout(SwitchWindow);
@@ -428,6 +435,7 @@ int x,y;
     private javax.swing.JPanel StocksPanel;
     private javax.swing.JDesktopPane SwitchWindow;
     private javax.swing.JPanel TopPanel;
+    private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
