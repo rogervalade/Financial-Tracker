@@ -268,7 +268,10 @@ public class Income extends javax.swing.JInternalFrame {
        double y = tmp.getIncome();
        
        WeeklyIncome.setText(String.valueOf(fmt.format(y)));
-            
+       
+       MonthlyIncome.setText (String.valueOf(fmt.format(y * 4)));
+       
+       YearlyIncome.setText(String.valueOf (fmt.format(y*52)));
       
     }//GEN-LAST:event_jButton1ActionPerformed
 
