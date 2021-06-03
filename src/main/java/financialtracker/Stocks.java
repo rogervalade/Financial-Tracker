@@ -73,6 +73,7 @@ public class Stocks extends javax.swing.JInternalFrame {
             }
         });
 
+        jTextField2.setEditable(false);
         jTextField2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
         PriceButton.setBackground(new java.awt.Color(47, 70, 103));
