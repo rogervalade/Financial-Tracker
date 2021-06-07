@@ -6,14 +6,18 @@ package financialtracker;
  */
 
 
+import java.text.NumberFormat;
+import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+
 
 /**
  *
  * @author shubh
  */
 public class Expenses extends javax.swing.JInternalFrame {
-
+    NumberFormat fmt = NumberFormat.getCurrencyInstance();
+    ExpenseCalculator tmp = new ExpenseCalculator ();
     /**
      * Creates new form Purchases
      */
@@ -22,6 +26,9 @@ public class Expenses extends javax.swing.JInternalFrame {
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
+         
+        
+      
     }
 
     /**
@@ -34,44 +41,198 @@ public class Expenses extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        DailyLabel = new javax.swing.JLabel();
+        DailyTxt = new javax.swing.JTextField();
+        MonthlyLabel = new javax.swing.JLabel();
+        MonthlyTxt = new javax.swing.JTextField();
+        MedicalLabel = new javax.swing.JLabel();
+        MedicalTxt = new javax.swing.JTextField();
+        TaxLabel = new javax.swing.JLabel();
+        TaxTxt = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        TotalTxt = new javax.swing.JTextField();
+        CalculateButton = new javax.swing.JButton();
+        ClearButton = new javax.swing.JButton();
+        RemainingTxt = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        DailyTxt1 = new javax.swing.JTextField();
 
         setPreferredSize(new java.awt.Dimension(660, 450));
 
         jPanel1.setBackground(new java.awt.Color(23, 35, 51));
         jPanel1.setPreferredSize(new java.awt.Dimension(660, 450));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("This window is for Expenses");
+        DailyLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        DailyLabel.setForeground(new java.awt.Color(255, 255, 255));
+        DailyLabel.setText("Daily Expenses:");
+
+        DailyTxt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        DailyTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DailyTxtActionPerformed(evt);
+            }
+        });
+
+        MonthlyLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        MonthlyLabel.setForeground(new java.awt.Color(255, 255, 255));
+        MonthlyLabel.setText("Monthly Bills:");
+
+        MonthlyTxt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+
+        MedicalLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        MedicalLabel.setForeground(new java.awt.Color(255, 255, 255));
+        MedicalLabel.setText("Medical Bills:");
+
+        MedicalTxt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+
+        TaxLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        TaxLabel.setForeground(new java.awt.Color(255, 255, 255));
+        TaxLabel.setText("Tax Paid:");
+
+        TaxTxt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        TaxTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TaxTxtActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Total Expense:");
+
+        TotalTxt.setEditable(false);
+        TotalTxt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+
+        CalculateButton.setBackground(new java.awt.Color(47, 70, 103));
+        CalculateButton.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        CalculateButton.setForeground(new java.awt.Color(255, 255, 255));
+        CalculateButton.setText("Calculate");
+        CalculateButton.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        CalculateButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CalculateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CalculateButtonActionPerformed(evt);
+            }
+        });
+
+        ClearButton.setBackground(new java.awt.Color(47, 70, 103));
+        ClearButton.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        ClearButton.setForeground(new java.awt.Color(255, 255, 255));
+        ClearButton.setText("Clear");
+        ClearButton.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        ClearButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ClearButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ClearButtonMouseClicked(evt);
+            }
+        });
+
+        RemainingTxt.setEditable(false);
+        RemainingTxt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Remaining Income:");
+
+        DailyTxt1.setEditable(false);
+        DailyTxt1.setBackground(new java.awt.Color(204, 255, 204));
+        DailyTxt1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        DailyTxt1.setText("Graph Area?");
+        DailyTxt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DailyTxt1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(CalculateButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ClearButton)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(TaxLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(TaxTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(MedicalLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(MedicalTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(MonthlyLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(DailyLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(DailyTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(MonthlyTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(TotalTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(79, 79, 79)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(RemainingTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(109, 109, 109))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(DailyTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(157, 157, 157))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel3)
-                .addGap(0, 425, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(DailyTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DailyLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MonthlyLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(MonthlyTxt))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TaxLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TaxTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MedicalLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(MedicalTxt))
+                .addGap(18, 18, 18)
+                .addComponent(DailyTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(106, 106, 106)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CalculateButton)
+                    .addComponent(ClearButton))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(TotalTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGap(3, 3, 3)))
+                    .addComponent(RemainingTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -79,9 +240,64 @@ public class Expenses extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void CalculateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalculateButtonActionPerformed
+      
+       
+          tmp.setMedicalExpense(Double.parseDouble(MedicalTxt.getText())); 
+          tmp.setTax(Double.parseDouble(TaxTxt.getText()));
+            tmp.setDailyExpense(Double.parseDouble(DailyTxt.getText()));
+        tmp.setMonthlyBills(Double.parseDouble(MonthlyTxt.getText()));
+        
+                
+     
+       double x = tmp.getTotalExpense();
+       TotalTxt.setText(String.valueOf(fmt.format(x)));
+       MedicalTxt.setText(String.valueOf(fmt.format(tmp.getMedicalExpense())));
+       TaxTxt.setText(String.valueOf(fmt.format(tmp.getTax())));
+       DailyTxt.setText(String.valueOf(fmt.format(tmp.getDailyExpense())));
+       MonthlyTxt.setText(String.valueOf(fmt.format(tmp.getMonthlyBills())));
+    }//GEN-LAST:event_CalculateButtonActionPerformed
+
+    private void TaxTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TaxTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TaxTxtActionPerformed
+
+    private void ClearButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ClearButtonMouseClicked
+       
+        
+        TaxTxt.setText("");
+        MedicalTxt.setText("");
+        DailyTxt.setText("");
+        MonthlyTxt.setText("");
+        RemainingTxt.setText("");
+        TotalTxt.setText("");
+    }//GEN-LAST:event_ClearButtonMouseClicked
+
+    private void DailyTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DailyTxtActionPerformed
+        
+    }//GEN-LAST:event_DailyTxtActionPerformed
+
+    private void DailyTxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DailyTxt1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DailyTxt1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton CalculateButton;
+    private javax.swing.JButton ClearButton;
+    private javax.swing.JLabel DailyLabel;
+    private javax.swing.JTextField DailyTxt;
+    private javax.swing.JTextField DailyTxt1;
+    private javax.swing.JLabel MedicalLabel;
+    private javax.swing.JTextField MedicalTxt;
+    private javax.swing.JLabel MonthlyLabel;
+    private javax.swing.JTextField MonthlyTxt;
+    private javax.swing.JTextField RemainingTxt;
+    private javax.swing.JLabel TaxLabel;
+    private javax.swing.JTextField TaxTxt;
+    private javax.swing.JTextField TotalTxt;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

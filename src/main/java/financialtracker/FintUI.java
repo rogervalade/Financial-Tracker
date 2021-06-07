@@ -285,14 +285,15 @@ public class FintUI extends javax.swing.JFrame {
             .addGroup(MisTitlePanelLayout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addComponent(jLabel2)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MisTitlePanelLayout.setVerticalGroup(
             MisTitlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
         );
 
-        jCalendar1.setBackground(new java.awt.Color(120, 168, 252));
+        jCalendar1.setBackground(new java.awt.Color(0, 204, 204));
+        jCalendar1.setPreferredSize(new java.awt.Dimension(230, 450));
 
         javax.swing.GroupLayout MisPanelLayout = new javax.swing.GroupLayout(MisPanel);
         MisPanel.setLayout(MisPanelLayout);

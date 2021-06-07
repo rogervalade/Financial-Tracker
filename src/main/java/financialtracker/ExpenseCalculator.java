@@ -99,6 +99,20 @@ public class ExpenseCalculator
        this.medicalExpense += medicalExpense;
        this.tax += tax;
    }
+   public void updateExpense (double dailyExpense, double monthlyBills){
+       this.dailyExpense += dailyExpense;
+       this.monthlyBills += monthlyBills;
+   }
+     public void updateExpenseNoTax (double dailyExpense, double monthlyBills,double medicalExpense){
+       this.dailyExpense += dailyExpense;
+       this.monthlyBills += monthlyBills;
+       this.medicalExpense += medicalExpense;
+   }  
+     public void updateExpenseNoMedical (double dailyExpense, double monthlyBills, double tax){
+       this.dailyExpense += dailyExpense;
+       this.monthlyBills += monthlyBills;
+       this.tax += tax;
+   }
 
    /**
    *
@@ -106,8 +120,20 @@ public class ExpenseCalculator
    * tax
    */
    public double getTotalExpense() {
+       
        double totalExpense = 0;
-       totalExpense = getDailyExpense() + getMonthlyBills() + getMedicalExpense() + getTax();
+       
+       if (medicalExpense == 0 && tax == 0){
+           totalExpense = dailyExpense + monthlyBills;
+       }else if (medicalExpense ==0){
+           totalExpense = dailyExpense + monthlyBills +tax ;
+       }else if (tax == 0){
+           totalExpense = dailyExpense + monthlyBills + medicalExpense;
+       } else{
+          totalExpense = dailyExpense + monthlyBills + medicalExpense +tax ; 
+       }
+       
+       
        return totalExpense;
    }
 }
