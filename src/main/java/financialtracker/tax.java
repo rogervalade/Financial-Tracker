@@ -1,66 +1,110 @@
 package financialtracker;
 
-import java.util.Scanner;
-
 /**
  *
  * @author fdynsn
  */
 public class tax {
 
-    double income;
-    private double fedTax;
+    private double income;
+    protected double[] rate = {0.10, 0.12, .22, 0.24, 0.32, 0.35, .39};
     private double stateTax = .0425;
+    private double fedTotal;
+    private double ft;
+    private double st;
+    private double tt;
 
     public double getIncome() {
         return income;
     }
 
     public void setIncome(double newIncome) {
+        assert (newIncome >= 0);
         this.income = newIncome;
     }
 
     public double getFedTax() {
-        return fedTax;
-    }
-
-    public double getStateTax() {
-        return stateTax;
-    }
-
-    static double calcTax(double income, double fedTax, double stateTax) {
-        double tt;
-
         if (income <= 9700) {
-            fedTax = income * .10;
-
+            ft = rate[0];
         } else if ((income >= 9701) && (income <= 39475)) {
             if (income <= 39475) {
-                fedTax = .12 * (income - 9700) + (.1 * 9700);
-                tt = fedTax + stateTax;
+                ft = rate[1];
             }
         } else if ((income >= 39476) && (income <= 84200)) {
             if (income <= 84200) {
-                fedTax = .22 * (income - 39475) + .12 * (income - 9700) + (.1 * 9700);
-                tt = fedTax * stateTax;
+                ft = rate[2];
             }
         } else if ((income >= 84200) && (income <= 160725)) {
             if (income <= 160725) {
-                fedTax = .24 * (income - 84200) + .22 * (income - 39475) + .12 * (income - 9700) + (.1 * 9700);
-                tt = fedTax * stateTax;
+                ft = rate[3];
             }
         } else if ((income >= 160725) && (income <= 204100)) {
             if (income <= 204100) {
-                fedTax = .32 * (income - 160725) + .24 * (income - 84200) + .22 * (income - 39475) + .12 * (income - 9700) + (.1 * 9700);
-                tt = fedTax * stateTax;
+                ft = rate[4];
             }
         } else if ((income >= 204100) && (income <= 510300)) {
             if (income <= 510300) {
-                fedTax = .35 * (income - 204100) + .32 * (income - 160725) + .24 * (income - 84200) + .22 * (income - 39475) + .12 * (income - 9700) + (.1 * 9700);
-                tt = fedTax * stateTax;
+                ft = rate[5];
+            } else if ((income >= 510301)) {
+                ft = rate[6];
             }
         }
-        return 0;
+        return ft;
+    }
 
+    public void setFedTax(double fedTax) {
+        assert (fedTax >= 0);
+        this.ft = fedTax;
+    }
+
+    public double calcFedTax() {
+        if (income <= 9700) {
+            fedTotal = rate[0] * income;
+
+        } else if ((income >= 9701) && (income <= 39475)) {
+            if (income <= 39475) {
+                fedTotal = rate[1] * (income - 9700) + (rate[0] * 9700);
+            }
+        } else if ((income >= 39476) && (income <= 84200)) {
+            if (income <= 84200) {
+                fedTotal = rate[2] * (income - 39475) + rate[1] * (income - 9700) + (rate[0] * 9700);
+            }
+        } else if ((income >= 84200) && (income <= 160725)) {
+            if (income <= 160725) {
+                fedTotal = rate[3] * (income - 84200) + rate[2] * (income - 39475) + rate[1] * (income - 9700) + (rate[0] * 9700);
+            }
+        } else if ((income >= 160725) && (income <= 204100)) {
+            if (income <= 204100) {
+                fedTotal = rate[4] * (income - 160725) + rate[3] * (income - 84200) + rate[2] * (income - 39475) + rate[1] * (income - 9700) + (rate[0] * 9700);
+            }
+        } else if ((income >= 204100) && (income <= 510300)) {
+            if (income <= 510300) {
+                fedTotal = rate[5] * (income - 204100) + rate[4] * (income - 160725) + rate[3] * (income - 84200) + rate[2] * (income - 39475) + rate[1] * (income - 9700) + (rate[0] * 9700);
+            } else if ((income >= 510301)) {
+                fedTotal = rate[6] * (income - 510300) + rate[5] * (income - 204100) + rate[4] * (income - 160725) + rate[3] * (income - 84200) + rate[2] * (income - 39475) + rate[1] * (income - 9700) + (rate[0] * 9700);
+
+            }
+
+        }
+        return fedTotal;
+
+    }
+
+    public void setFed(double newFedTax) {
+        assert (newFedTax >= 0);
+        this.fedTotal = newFedTax;
+    }
+
+    public double calcStateTax() {
+        st = income * stateTax;
+        return 0;
+    }
+
+    public void setStateTax(double newStateTax) {
+        this.st = newStateTax;
+    }
+
+    public void calcTotalTax() {
+        tt = (ft + stateTax) * income;
     }
 }
