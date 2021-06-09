@@ -236,7 +236,7 @@ public class FintUI extends javax.swing.JFrame {
 
         EixtLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         EixtLabel.setForeground(new java.awt.Color(255, 255, 255));
-        EixtLabel.setText("EXIT");
+        EixtLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8_shutdown_20px.png"))); // NOI18N
         EixtLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         EixtLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -254,7 +254,7 @@ public class FintUI extends javax.swing.JFrame {
             TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopPanelLayout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 812, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 820, Short.MAX_VALUE)
                 .addComponent(EixtLabel)
                 .addContainerGap())
         );
@@ -397,7 +397,7 @@ int x,y;
 
     private void IncomePanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IncomePanelMouseClicked
         
-        SwitchWindow.removeAll();
+      SwitchWindow.removeAll();
         Income window = new Income();
         SwitchWindow.add(window).setVisible(true);
         
@@ -414,6 +414,7 @@ int x,y;
     private void StocksPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StocksPanelMouseClicked
         
         SwitchWindow.removeAll();
+       
         Stocks window = new Stocks ();
         SwitchWindow.add(window).setVisible(true);
         

@@ -18,6 +18,9 @@ public class Income extends javax.swing.JInternalFrame {
    
 
   IncomeCalculator tmp = new IncomeCalculator();
+  
+  tax tmpo = new tax();
+  
   NumberFormat fmt = NumberFormat.getCurrencyInstance();
   
 
@@ -56,7 +59,7 @@ public class Income extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         StateTax = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        StateTax1 = new javax.swing.JTextField();
+        TotalTax = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(23, 35, 51));
         setPreferredSize(new java.awt.Dimension(660, 450));
@@ -132,6 +135,11 @@ public class Income extends javax.swing.JInternalFrame {
 
         FederalTax.setEditable(false);
         FederalTax.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        FederalTax.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FederalTaxActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -144,8 +152,13 @@ public class Income extends javax.swing.JInternalFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Total Tax:");
 
-        StateTax1.setEditable(false);
-        StateTax1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        TotalTax.setEditable(false);
+        TotalTax.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        TotalTax.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TotalTaxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -169,7 +182,7 @@ public class Income extends javax.swing.JInternalFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addComponent(jLabel10)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(StateTax1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(TotalTax, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addComponent(jLabel9)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -230,7 +243,7 @@ public class Income extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(StateTax1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TotalTax, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44))
         );
 
@@ -290,6 +303,24 @@ public class Income extends javax.swing.JInternalFrame {
        
        YearlyIncome.setText(String.valueOf (fmt.format(y*52)));
       
+       double YIncome = y * 52; //Finding yearly income based on the weekly income calculated
+       
+       tmpo.setIncome(YIncome);
+       
+       tmpo.setFedRate(tmpo.getFedTaxRate(YIncome));
+       
+      double FedTax =  tmpo.calcFedTax(YIncome);
+               
+      double StTax =  tmpo.calcStateTax(YIncome);
+       
+      double TT =  tmpo.calcTotalTax(YIncome);
+       
+       FederalTax.setText(String.valueOf(fmt.format(FedTax)));
+       StateTax.setText(String.valueOf(fmt.format(StTax)));
+       TotalTax.setText(String.valueOf(fmt.format(TT)));
+       
+      WageTxtField.setText(String.valueOf(fmt.format(x)));
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void HoursWorkedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HoursWorkedActionPerformed
@@ -297,13 +328,21 @@ public class Income extends javax.swing.JInternalFrame {
       
     }//GEN-LAST:event_HoursWorkedActionPerformed
 
+    private void FederalTaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FederalTaxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FederalTaxActionPerformed
+
+    private void TotalTaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TotalTaxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TotalTaxActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField FederalTax;
     private javax.swing.JTextField HoursWorked;
     private javax.swing.JTextField MonthlyIncome;
     private javax.swing.JTextField StateTax;
-    private javax.swing.JTextField StateTax1;
+    private javax.swing.JTextField TotalTax;
     private javax.swing.JTextField WageTxtField;
     private javax.swing.JTextField WeeklyIncome;
     private javax.swing.JTextField YearlyIncome;
