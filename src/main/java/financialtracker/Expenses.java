@@ -253,7 +253,6 @@ public class Expenses extends javax.swing.JInternalFrame {
         MedicalTxt.setText("");
         DailyTxt.setText("");
         MonthlyTxt.setText("");
-        RemainingTxt.setText("");
         TotalTxt.setText("");
     }//GEN-LAST:event_ClearButtonMouseClicked
 
