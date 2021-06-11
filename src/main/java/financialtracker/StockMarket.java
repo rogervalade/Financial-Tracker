@@ -102,6 +102,9 @@ public class StockMarket
 
     public double sellStock(String symbol, double amount) throws FileNotFoundException
     {
+        double stockPrice = getStockPrice(symbol);
+        double price = amount * stockPrice;
+
         double owned = 0;
         double valued = 0;
 
