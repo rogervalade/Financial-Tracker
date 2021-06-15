@@ -20,7 +20,7 @@ public class FintUI extends javax.swing.JFrame {
     
     
     public FintUI() {
-        initComponents();
+               initComponents();
         
         //When the Program is started, the first window is Home. 
         

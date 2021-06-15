@@ -12,7 +12,11 @@ public class FinancialTracker
             }
         });
         
-        
+           java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new PopNotification().setVisible(true);
+            }
+        });
        StockMarket s = new StockMarket(); 
        
     }
