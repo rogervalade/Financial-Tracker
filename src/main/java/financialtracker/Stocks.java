@@ -37,24 +37,24 @@ public class Stocks extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        FirstStock = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         PriceButton = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         ClearButton = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
-        BuyButton = new javax.swing.JButton();
-        SellButton = new javax.swing.JButton();
+        BuyOneButton = new javax.swing.JButton();
+        SellOneButton = new javax.swing.JButton();
         FinalMessage = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         RecentSearches = new javax.swing.JTextArea();
-        jTextField4 = new javax.swing.JTextField();
+        SecondStock = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
+        BuyBothButton = new javax.swing.JButton();
+        SellBothButton = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        RecentSearches1 = new javax.swing.JTextArea();
 
         setPreferredSize(new java.awt.Dimension(660, 450));
 
@@ -69,10 +69,10 @@ public class Stocks extends javax.swing.JInternalFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Prices:");
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        FirstStock.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        FirstStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                FirstStockActionPerformed(evt);
             }
         });
 
@@ -99,22 +99,6 @@ public class Stocks extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("BTC = Bitcoin");
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("BCH = Bitcoin Cash");
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("LTC = Litecoin");
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("DOGE = Dogecoin");
-
         ClearButton.setBackground(new java.awt.Color(47, 70, 103));
         ClearButton.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         ClearButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -127,37 +111,34 @@ public class Stocks extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Please, use the letter abbreviations:");
-
-        BuyButton.setBackground(new java.awt.Color(47, 70, 103));
-        BuyButton.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        BuyButton.setForeground(new java.awt.Color(255, 255, 255));
-        BuyButton.setText("Buy");
-        BuyButton.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        BuyButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BuyButton.addActionListener(new java.awt.event.ActionListener() {
+        BuyOneButton.setBackground(new java.awt.Color(47, 70, 103));
+        BuyOneButton.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        BuyOneButton.setForeground(new java.awt.Color(255, 255, 255));
+        BuyOneButton.setText("Buy One");
+        BuyOneButton.setActionCommand("Buy One");
+        BuyOneButton.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        BuyOneButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BuyOneButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BuyButtonActionPerformed(evt);
+                BuyOneButtonActionPerformed(evt);
             }
         });
 
-        SellButton.setBackground(new java.awt.Color(47, 70, 103));
-        SellButton.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        SellButton.setForeground(new java.awt.Color(255, 255, 255));
-        SellButton.setText("Sell");
-        SellButton.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        SellButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        SellButton.addActionListener(new java.awt.event.ActionListener() {
+        SellOneButton.setBackground(new java.awt.Color(47, 70, 103));
+        SellOneButton.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        SellOneButton.setForeground(new java.awt.Color(255, 255, 255));
+        SellOneButton.setText("Sell One");
+        SellOneButton.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        SellOneButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SellOneButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SellButtonActionPerformed(evt);
+                SellOneButtonActionPerformed(evt);
             }
         });
 
         FinalMessage.setEditable(false);
         FinalMessage.setBackground(new java.awt.Color(23, 35, 51));
-        FinalMessage.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        FinalMessage.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         FinalMessage.setForeground(new java.awt.Color(255, 255, 255));
         FinalMessage.setBorder(null);
 
@@ -171,10 +152,10 @@ public class Stocks extends javax.swing.JInternalFrame {
         RecentSearches.setRows(5);
         jScrollPane2.setViewportView(RecentSearches);
 
-        jTextField4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        SecondStock.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        SecondStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                SecondStockActionPerformed(evt);
             }
         });
 
@@ -191,70 +172,114 @@ public class Stocks extends javax.swing.JInternalFrame {
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/25823-5-stock-market-thumb.png"))); // NOI18N
 
+        BuyBothButton.setBackground(new java.awt.Color(47, 70, 103));
+        BuyBothButton.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        BuyBothButton.setForeground(new java.awt.Color(255, 255, 255));
+        BuyBothButton.setText("Buy Both");
+        BuyBothButton.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        BuyBothButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BuyBothButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuyBothButtonActionPerformed(evt);
+            }
+        });
+
+        SellBothButton.setBackground(new java.awt.Color(47, 70, 103));
+        SellBothButton.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        SellBothButton.setForeground(new java.awt.Color(255, 255, 255));
+        SellBothButton.setText("Sell Both");
+        SellBothButton.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        SellBothButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SellBothButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SellBothButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Use Three Letters");
+
+        RecentSearches1.setEditable(false);
+        RecentSearches1.setColumns(20);
+        RecentSearches1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        RecentSearches1.setRows(5);
+        RecentSearches1.setText("Bitcoin-BTC\nLitecoin-LTC\nBitcoin Cash-BCH\nDogecoin-DOGE\nStellar Lumens-XLM\nEthereum-ETH\nBitcoin Gold-BTG\n\n");
+        jScrollPane3.setViewportView(RecentSearches1);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(FinalMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 89, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(ClearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(6, 6, 6))
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(BuyOneButton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(BuyBothButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(6, 6, 6))
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(33, 33, 33)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(FirstStock, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField5))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(ClearButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(PriceButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BuyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(SellButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jTextField5)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(SellOneButton)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(SellBothButton)
+                                                .addGap(0, 0, Short.MAX_VALUE))))))
+                            .addComponent(FinalMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(SecondStock, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PriceButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(44, 44, 44))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(FirstStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SecondStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(57, 57, 57)
+                        .addGap(18, 18, 18)
                         .addComponent(PriceButton)
-                        .addGap(65, 65, 65)
+                        .addGap(104, 104, 104)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2)
@@ -262,36 +287,20 @@ public class Stocks extends javax.swing.JInternalFrame {
                         .addGap(28, 28, 28)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ClearButton)
-                            .addComponent(BuyButton)
-                            .addComponent(SellButton)))
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(FinalMessage)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7)))
-                .addGap(24, 24, 24))
+                            .addComponent(BuyOneButton)
+                            .addComponent(SellOneButton)
+                            .addComponent(BuyBothButton)
+                            .addComponent(SellBothButton))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(FinalMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 83, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -301,58 +310,65 @@ public class Stocks extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void FirstStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FirstStockActionPerformed
         
+ 
+        tmp.getStockPrice(FirstStock.getText());
         
-        tmp.getStockPrice(jTextField1.getText());
-        
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_FirstStockActionPerformed
 public void actionPerformed (ActionEvent event){
    
 }
     private void PriceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PriceButtonActionPerformed
-        double  x = tmp.getStockPrice(jTextField1.getText());
-        double y = tmp.getStockPrice(jTextField4.getText());
-        jTextField2.setText(String.valueOf(fmt.format(x)));
-        jTextField5.setText(String.valueOf(fmt.format(y)));
-        RecentSearches.append(jTextField1.getText()+ " ," + jTextField4.getText() + "\n");
+        
+            double  x = tmp.getStockPrice(FirstStock.getText());
+            double y = tmp.getStockPrice(SecondStock.getText());
+            jTextField2.setText(String.valueOf(fmt.format(x)));
+             jTextField5.setText(String.valueOf(fmt.format(y)));
+             RecentSearches.append(FirstStock.getText()+ " ," + SecondStock.getText() + "\n");
+        
+            
+        
+        
+        
        
+    
     }//GEN-LAST:event_PriceButtonActionPerformed
 
     private void ClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearButtonActionPerformed
-        jTextField1.setText("");
+        FirstStock.setText("");
         jTextField2.setText("");
         FinalMessage.setText("");
         RecentSearches.setText("");
-        jTextField4.setText("");
+        SecondStock.setText("");
         jTextField5.setText("");
         
     }//GEN-LAST:event_ClearButtonActionPerformed
 
-    private void BuyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuyButtonActionPerformed
-        tmp.buyStock(jTextField1.getText(), ABORT);
-        FinalMessage.setText("Congratulations, you bought " + jTextField1.getText() + " and \n" + jTextField4.getText()+ " stocks!");
-        double  x = tmp.getStockPrice(jTextField1.getText());
+    private void BuyOneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuyOneButtonActionPerformed
+        tmp.buyStock(FirstStock.getText(), ABORT);
+        FinalMessage.setText("Congratulations, you bought " + FirstStock.getText() + " stock!");
+        double  x = tmp.getStockPrice(FirstStock.getText());
                   
        jTextField2.setText(String.valueOf(fmt.format(x)));
        
-    }//GEN-LAST:event_BuyButtonActionPerformed
+    }//GEN-LAST:event_BuyOneButtonActionPerformed
 
-    private void SellButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SellButtonActionPerformed
+    private void SellOneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SellOneButtonActionPerformed
         try {
-            tmp.sellStock(jTextField1.getText(), ABORT);
-            FinalMessage.setText("Congratulations, you sold your " + jTextField1.getText() +" and \n" + jTextField4.getText()+ " stocks!");
-            double  x = tmp.getStockPrice(jTextField1.getText());
+            tmp.sellStock(FirstStock.getText(), ABORT);
+            FinalMessage.setText("Congratulations, you sold your " + FirstStock.getText() + " stock!");
+            double  x = tmp.getStockPrice(FirstStock.getText());
             jTextField2.setText(String.valueOf(fmt.format(x)));
             
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Stocks.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_SellButtonActionPerformed
+    }//GEN-LAST:event_SellOneButtonActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        tmp.getStockPrice(jTextField4.getText());
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    private void SecondStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SecondStockActionPerformed
+      
+    }//GEN-LAST:event_SecondStockActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
@@ -362,28 +378,56 @@ public void actionPerformed (ActionEvent event){
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
+    private void BuyBothButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuyBothButtonActionPerformed
+        tmp.buyStock(FirstStock.getText(), ABORT);
+        tmp.buyStock(SecondStock.getText(), ABORT);
+        FinalMessage.setText("Congratulations, you bought " + FirstStock.getText() + ", and " + SecondStock.getText() + " stocks!");
+        double  x = tmp.getStockPrice(FirstStock.getText());
+        double y = tmp.getStockPrice(SecondStock.getText());
+                  
+       jTextField2.setText(String.valueOf(fmt.format(x)));
+       jTextField5.setText(String.valueOf(fmt.format(y)));
+    }//GEN-LAST:event_BuyBothButtonActionPerformed
+
+    private void SellBothButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SellBothButtonActionPerformed
+        try {
+            tmp.sellStock(FirstStock.getText(), ABORT);       
+            tmp.sellStock(SecondStock.getText(), ABORT);
+            FinalMessage.setText("Congratulations, you sold " + FirstStock.getText() + ", and " + SecondStock.getText() + " stocks!");
+            double  x = tmp.getStockPrice(FirstStock.getText());
+              double y = tmp.getStockPrice(SecondStock.getText());
+                  
+       jTextField2.setText(String.valueOf(fmt.format(x)));
+       jTextField5.setText(String.valueOf(fmt.format(y)));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Stocks.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+       
+    }//GEN-LAST:event_SellBothButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BuyButton;
+    private javax.swing.JButton BuyBothButton;
+    private javax.swing.JButton BuyOneButton;
     private javax.swing.JButton ClearButton;
     private javax.swing.JTextField FinalMessage;
+    private javax.swing.JTextField FirstStock;
     private javax.swing.JButton PriceButton;
     private javax.swing.JTextArea RecentSearches;
-    private javax.swing.JButton SellButton;
+    private javax.swing.JTextArea RecentSearches1;
+    private javax.swing.JTextField SecondStock;
+    private javax.swing.JButton SellBothButton;
+    private javax.swing.JButton SellOneButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }
