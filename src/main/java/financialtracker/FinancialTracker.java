@@ -11,13 +11,6 @@ public class FinancialTracker
             public void run()
             {
                 new FintUI().setVisible(true);
-            }
-        });
-        
-       java.awt.EventQueue.invokeLater(new Runnable()
-       {
-            public void run()
-            {
                 new PopNotification().setVisible(true);
             }
         });
