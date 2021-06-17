@@ -6,23 +6,20 @@ public class FinancialTracker
 {
     public static void main(String[] args) throws FileNotFoundException
     {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(new Runnable()
+        {
+            public void run()
+            {
                 new FintUI().setVisible(true);
             }
         });
         
-           java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+       java.awt.EventQueue.invokeLater(new Runnable()
+       {
+            public void run()
+            {
                 new PopNotification().setVisible(true);
             }
         });
-       StockMarket s = new StockMarket(); 
-       
     }
-    
-    
-    
-   
-    
 }
