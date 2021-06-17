@@ -86,9 +86,7 @@
                           <Component id="ClearButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jLabel2" pref="390" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace pref="418" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -106,29 +104,21 @@
                       <Component id="MonthlyTxt" alignment="3" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="TaxLabel" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="TaxTxt" alignment="3" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="MedicalLabel" alignment="3" max="32767" attributes="0"/>
-                              <Component id="MedicalTxt" alignment="3" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="222" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="CalculateButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="ClearButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="TaxLabel" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                      <Component id="TaxTxt" alignment="3" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="MedicalLabel" alignment="3" max="32767" attributes="0"/>
+                      <Component id="MedicalTxt" alignment="3" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="222" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="CalculateButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ClearButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="TotalTxt" min="-2" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
@@ -288,13 +278,6 @@
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ClearButtonMouseClicked"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/shopping_cart_PNG73.png"/>
-            </Property>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>
