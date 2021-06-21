@@ -392,10 +392,10 @@ public class Income extends javax.swing.JInternalFrame {
         barChartData.setValue(x6, "Hours", "Saturday");
         barChartData.setValue(x7, "Hours", "Sunday");
         
-        JFreeChart barChart = ChartFactory.createBarChart("Wage Graph", "Days", "Hours", barChartData);
+        JFreeChart barChart = ChartFactory.createBarChart("Hours Graph", "Days", "Hours", barChartData);
 //        CategoryPlot barchrt = barChart.getCategoryPlot();
 //        barchrt.setRangeGridlinePaint(Color.ORANGE);
-        ChartFrame frame = new ChartFrame("Wage Graph", barChart);
+        ChartFrame frame = new ChartFrame("Hours Graph", barChart);
         frame.setVisible(true);
        frame.setSize(600,800);
         } catch (Exception e){
