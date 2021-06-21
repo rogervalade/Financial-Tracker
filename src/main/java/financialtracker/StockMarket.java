@@ -25,9 +25,6 @@ public class StockMarket
         String priceString = "";
         double price = -1.0;
 
-        if (symbol.isEmpty())
-            return price;
-
         try
         {
             String result = makeAPICall(uri, paratmers);
@@ -84,9 +81,6 @@ public class StockMarket
 
     public void buyStock(String symbol, double amount)
     {
-        if (symbol.isEmpty())
-            return;
-
         double stockPrice = getStockPrice(symbol);
         double price = amount * stockPrice;
 
@@ -98,9 +92,6 @@ public class StockMarket
 
     private void buyStock(String symbol, double amount, double value)
     {
-        if (symbol.isEmpty())
-            return;
-
         double stockPrice = getStockPrice(symbol);
 
         data.storeStock(symbol);
@@ -111,8 +102,6 @@ public class StockMarket
 
     public double sellStock(String symbol, double amount) throws FileNotFoundException
     {
-        assert (!symbol.isEmpty());
-
         double stockPrice = getStockPrice(symbol);
         double price = amount * stockPrice;
 
@@ -141,7 +130,8 @@ public class StockMarket
             line = line + 4;
         }
 
-        assert (!(amount > owned));
+        if (amount > owned)
+            return -1.0;
 
         double salePrice = getStockPrice(symbol) * amount;
 

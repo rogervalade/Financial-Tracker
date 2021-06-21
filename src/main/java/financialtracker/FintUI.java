@@ -176,7 +176,7 @@ public class FintUI extends javax.swing.JFrame {
 
         StocksLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         StocksLabel.setForeground(new java.awt.Color(255, 255, 255));
-        StocksLabel.setText("STOCKS");
+        StocksLabel.setText("CRYPTO");
 
         javax.swing.GroupLayout StocksPanelLayout = new javax.swing.GroupLayout(StocksPanel);
         StocksPanel.setLayout(StocksPanelLayout);
@@ -364,6 +364,9 @@ int x,y;
         int xx = evt.getXOnScreen();
         int yy = evt.getYOnScreen();
         this.setLocation(xx-x, yy-y);
+        
+        
+        
     }//GEN-LAST:event_TopPanelMouseDragged
 
     private void HomePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomePanelMousePressed
@@ -417,6 +420,8 @@ int x,y;
        
         Stocks window = new Stocks ();
         SwitchWindow.add(window).setVisible(true);
+        
+       
         
     }//GEN-LAST:event_StocksPanelMouseClicked
 

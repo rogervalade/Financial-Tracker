@@ -27,18 +27,18 @@ public class ExpenseCalculator
    *
    * @return dailyExpense
    */
-   public double getDailyExpense() {
-       return dailyExpense;
-   }
-
-   /**
-   *
-   * @param dailyExpense
-   */
-   public void setDailyExpense(double dailyExpense) {
-       assert (dailyExpense >= 0.0) : "daily expense cannot be negative";
-       this.dailyExpense = dailyExpense;
-   }
+//   public double getDailyExpense() { I didn't use this method. 
+//       return dailyExpense;
+//   }
+//
+//   /**
+//   *
+//   * @param dailyExpense
+//   */
+//   public void setDailyExpense(double dailyExpense) {
+//       assert (dailyExpense >= 0.0) : "daily expense cannot be negative";
+//       this.dailyExpense = dailyExpense;
+//   }
 
    /**
    *
@@ -188,7 +188,6 @@ public class ExpenseCalculator
    * @param otherMonthlyExpenses
    * @param medicalExpense
    * @param tax
-
    */
    public void updateExpense(double dailyExpense, double groceries, double gas,
            double entertainment, double electricity, double consumersEnergy,
@@ -203,75 +202,75 @@ public class ExpenseCalculator
        this.medicalExpense += medicalExpense;
        this.tax += tax;
    }
-   public void updateExpense (double dailyExpense, double groceries){
-       this.dailyExpense += dailyExpense;
-       this.groceries += groceries;
-   }
-   public void updateExpense (double dailyExpense, double groceries, double gas){
-       this.dailyExpense += dailyExpense;
-       this.groceries += groceries;
-       this.gas += gas;
-   }
-   public void updateExpense (double dailyExpense, double groceries, double gas,
-           double entertainment){
-       this.dailyExpense += dailyExpense;
-       this.groceries += groceries;
-       this.gas += gas;
-       this.entertainment += entertainment;
-   }
-   public void updateExpense (double dailyExpense, double groceries, double gas,
-           double entertainment, double electricity){
-       this.dailyExpense += dailyExpense;
-       this.groceries += groceries;
-       this.gas += gas;
-       this.entertainment += entertainment;
-       this.electricity += electricity;
-   }
-   public void updateExpense (double dailyExpense, double groceries, double gas,
-           double entertainment, double electricity, double consumersEnergy){
-       this.dailyExpense += dailyExpense;
-       this.groceries += groceries;
-       this.gas += gas;
-       this.entertainment += entertainment;
-       this.electricity += electricity;
-       this.consumersEnergy += consumersEnergy;   
-   }
-   public void updateExpense (double dailyExpense, double groceries, double gas,
-           double entertainment, double electricity, double consumersEnergy,
-           double otherMonthlyExpenses){
-       this.dailyExpense += dailyExpense;
-       this.groceries += groceries;
-       this.gas += gas;
-       this.entertainment += entertainment;
-       this.electricity += electricity;
-       this.consumersEnergy += consumersEnergy;
-       this.otherMonthlyExpenses += otherMonthlyExpenses;
-   }
-     public void updateExpenseNoTax (double dailyExpense, double groceries, 
-             double gas, double entertainment, double electricity, 
-             double consumersEnergy, double otherMonthlyExpenses,
-             double medicalExpense){
-       this.dailyExpense += dailyExpense;
-       this.groceries += groceries;
-       this.gas += gas;
-       this.entertainment += entertainment;
-       this.electricity += electricity;
-       this.consumersEnergy += consumersEnergy;
-       this.otherMonthlyExpenses += otherMonthlyExpenses;
-       this.medicalExpense += medicalExpense;
-   }  
-     public void updateExpenseNoMedical (double dailyExpense, double groceries, 
-             double gas, double entertainment, double electricity, 
-             double consumersEnergy, double otherMonthlyExpenses, double tax){
-       this.dailyExpense += dailyExpense;
-       this.groceries += groceries;
-       this.gas += gas;
-       this.entertainment += entertainment;
-       this.electricity += electricity;
-       this.consumersEnergy += consumersEnergy;
-       this.otherMonthlyExpenses += otherMonthlyExpenses;
-       this.tax += tax;
-   }
+//   public void updateExpense (double dailyExpense, double groceries){
+//       this.dailyExpense += dailyExpense;
+//       this.groceries += groceries;
+//   }
+//   public void updateExpense (double dailyExpense, double groceries, double gas){
+//       this.dailyExpense += dailyExpense;
+//       this.groceries += groceries;
+//       this.gas += gas;
+//   }
+//   public void updateExpense (double dailyExpense, double groceries, double gas,
+//           double entertainment){
+//       this.dailyExpense += dailyExpense;
+//       this.groceries += groceries;
+//       this.gas += gas;
+//       this.entertainment += entertainment;
+//   }
+//   public void updateExpense (double dailyExpense, double groceries, double gas,
+//           double entertainment, double electricity){
+//       this.dailyExpense += dailyExpense;
+//       this.groceries += groceries;
+//       this.gas += gas;
+//       this.entertainment += entertainment;
+//       this.electricity += electricity;
+//   }
+//   public void updateExpense (double dailyExpense, double groceries, double gas,
+//           double entertainment, double electricity, double consumersEnergy){
+//       this.dailyExpense += dailyExpense;
+//       this.groceries += groceries;
+//       this.gas += gas;
+//       this.entertainment += entertainment;
+//       this.electricity += electricity;
+//       this.consumersEnergy += consumersEnergy;   
+//   }
+//   public void updateExpense (double dailyExpense, double groceries, double gas,
+//           double entertainment, double electricity, double consumersEnergy,
+//           double otherMonthlyExpenses){
+//       this.dailyExpense += dailyExpense;
+//       this.groceries += groceries;
+//       this.gas += gas;
+//       this.entertainment += entertainment;
+//       this.electricity += electricity;
+//       this.consumersEnergy += consumersEnergy;
+//       this.otherMonthlyExpenses += otherMonthlyExpenses;
+//   }
+//     public void updateExpenseNoTax (double dailyExpense, double groceries, 
+//             double gas, double entertainment, double electricity, 
+//             double consumersEnergy, double otherMonthlyExpenses,
+//             double medicalExpense){
+//       this.dailyExpense += dailyExpense;
+//       this.groceries += groceries;
+//       this.gas += gas;
+//       this.entertainment += entertainment;
+//       this.electricity += electricity;
+//       this.consumersEnergy += consumersEnergy;
+//       this.otherMonthlyExpenses += otherMonthlyExpenses;
+//       this.medicalExpense += medicalExpense;
+//   }  
+//     public void updateExpenseNoMedical (double dailyExpense, double groceries, 
+//             double gas, double entertainment, double electricity, 
+//             double consumersEnergy, double otherMonthlyExpenses, double tax){
+//       this.dailyExpense += dailyExpense;
+//       this.groceries += groceries;
+//       this.gas += gas;
+//       this.entertainment += entertainment;
+//       this.electricity += electricity;
+//       this.consumersEnergy += consumersEnergy;
+//       this.otherMonthlyExpenses += otherMonthlyExpenses;
+//       this.tax += tax;
+//   }
 
    /**
    *
@@ -282,21 +281,10 @@ public class ExpenseCalculator
        
        double totalExpense = 0;
        
-       if (medicalExpense == 0 && tax == 0){
-           totalExpense = dailyExpense + groceries + gas + entertainment + 
-                  electricity + consumersEnergy + otherMonthlyExpenses;
-       }else if (medicalExpense ==0){
-           totalExpense = dailyExpense + groceries + gas + entertainment + 
-                  electricity + consumersEnergy + otherMonthlyExpenses +tax ;
-       }else if (tax == 0){
-           totalExpense = dailyExpense + groceries + gas + entertainment + 
-                  electricity + consumersEnergy + otherMonthlyExpenses + 
-                   medicalExpense;
-       } else{
-          totalExpense = dailyExpense + groceries + gas + entertainment + 
+       totalExpense = dailyExpense + groceries + gas + entertainment + 
                   electricity + consumersEnergy + otherMonthlyExpenses + 
                   medicalExpense +tax ; 
-       }
+       
        
        
        return totalExpense;

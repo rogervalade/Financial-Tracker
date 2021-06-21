@@ -6,10 +6,25 @@ package financialtracker;
  */
 
 
+import java.awt.BorderLayout;
 import java.text.NumberFormat;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
-
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.category.DefaultCategoryDataset;
+import javax.swing.BorderFactory;
+import javax.swing.JFrame;
+import java.awt.Color;
+import java.awt.EventQueue;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PiePlot;
+import org.jfree.chart.plot.PiePlot3D;
 
 /**
  *
@@ -17,19 +32,33 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
  */
 public class Expenses extends javax.swing.JInternalFrame {
     NumberFormat fmt = NumberFormat.getCurrencyInstance();
+    NumberFormat per = NumberFormat.getPercentInstance();
     ExpenseCalculator tmp = new ExpenseCalculator ();
     /**
      * Creates new form Purchases
      */
+    
+    
     public Expenses() {
         initComponents();
+        
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
-         
         
-      
+        
+        
+        
+        
+         
     }
+
+      
+
+
+
+      
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,55 +70,60 @@ public class Expenses extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        DailyLabel = new javax.swing.JLabel();
-        DailyTxt = new javax.swing.JTextField();
+        Groceries = new javax.swing.JTextField();
         MonthlyLabel = new javax.swing.JLabel();
-        MonthlyTxt = new javax.swing.JTextField();
+        Gas = new javax.swing.JTextField();
         MedicalLabel = new javax.swing.JLabel();
-        MedicalTxt = new javax.swing.JTextField();
+        Electricity = new javax.swing.JTextField();
         TaxLabel = new javax.swing.JLabel();
-        TaxTxt = new javax.swing.JTextField();
+        Entertainment = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         TotalTxt = new javax.swing.JTextField();
         CalculateButton = new javax.swing.JButton();
         ClearButton = new javax.swing.JButton();
+        ShowGraph = new javax.swing.JButton();
+        MonthlyLabel1 = new javax.swing.JLabel();
+        MedicalLabel1 = new javax.swing.JLabel();
+        Consumer = new javax.swing.JTextField();
+        MedicalLabel2 = new javax.swing.JLabel();
+        OtherExpenses = new javax.swing.JTextField();
+        MedicalLabel3 = new javax.swing.JLabel();
+        Medical = new javax.swing.JTextField();
+        MedicalLabel4 = new javax.swing.JLabel();
+        Tax = new javax.swing.JTextField();
 
         setPreferredSize(new java.awt.Dimension(660, 450));
 
         jPanel1.setBackground(new java.awt.Color(23, 35, 51));
         jPanel1.setPreferredSize(new java.awt.Dimension(660, 450));
 
-        DailyLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        DailyLabel.setForeground(new java.awt.Color(255, 255, 255));
-        DailyLabel.setText("Daily Expenses:");
-
-        DailyTxt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        DailyTxt.addActionListener(new java.awt.event.ActionListener() {
+        Groceries.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Groceries.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DailyTxtActionPerformed(evt);
+                GroceriesActionPerformed(evt);
             }
         });
 
         MonthlyLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         MonthlyLabel.setForeground(new java.awt.Color(255, 255, 255));
-        MonthlyLabel.setText("Monthly Bills:");
+        MonthlyLabel.setText("Monthly Gas Bills:");
 
-        MonthlyTxt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Gas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
         MedicalLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         MedicalLabel.setForeground(new java.awt.Color(255, 255, 255));
-        MedicalLabel.setText("Medical Bills:");
+        MedicalLabel.setText("Electricity Bills:");
 
-        MedicalTxt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Electricity.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
         TaxLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         TaxLabel.setForeground(new java.awt.Color(255, 255, 255));
-        TaxLabel.setText("Tax Paid:");
+        TaxLabel.setText("Monthly Entertainment:");
 
-        TaxTxt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        TaxTxt.addActionListener(new java.awt.event.ActionListener() {
+        Entertainment.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Entertainment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TaxTxtActionPerformed(evt);
+                EntertainmentActionPerformed(evt);
             }
         });
 
@@ -124,6 +158,46 @@ public class Expenses extends javax.swing.JInternalFrame {
             }
         });
 
+        ShowGraph.setBackground(new java.awt.Color(47, 70, 103));
+        ShowGraph.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        ShowGraph.setForeground(new java.awt.Color(255, 255, 255));
+        ShowGraph.setText("Show Graph");
+        ShowGraph.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        ShowGraph.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ShowGraph.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShowGraphActionPerformed(evt);
+            }
+        });
+
+        MonthlyLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        MonthlyLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        MonthlyLabel1.setText("Monthly Groceries:");
+
+        MedicalLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        MedicalLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        MedicalLabel1.setText("Consumers Energy:");
+
+        Consumer.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+
+        MedicalLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        MedicalLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        MedicalLabel2.setText("Other Expenses:");
+
+        OtherExpenses.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+
+        MedicalLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        MedicalLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        MedicalLabel3.setText("Medical Expenses:");
+
+        Medical.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+
+        MedicalLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        MedicalLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        MedicalLabel4.setText("Monthly Taxes:");
+
+        Tax.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -131,60 +205,102 @@ public class Expenses extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(TaxLabel)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(TaxTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(MedicalLabel)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(MedicalTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(MonthlyLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(DailyLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(DailyTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(MonthlyTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(TotalTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(CalculateButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ClearButton)))
-                .addContainerGap(418, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(MonthlyLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(MonthlyLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Groceries, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Gas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(MedicalLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(TaxLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Entertainment, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Electricity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
+                        .addComponent(ShowGraph, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TotalTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(CalculateButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ClearButton))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(MedicalLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(OtherExpenses, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(MedicalLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Medical, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(MedicalLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Tax, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(MedicalLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Consumer, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(22, 22, 22))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(DailyTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DailyLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(MonthlyLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(MonthlyTxt))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Groceries, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MonthlyLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(MonthlyLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Gas)))
+                    .addComponent(ShowGraph, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TaxLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TaxTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Entertainment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(MedicalLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(MedicalTxt))
-                .addGap(222, 222, 222)
+                    .addComponent(Electricity))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MedicalLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Consumer))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MedicalLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(OtherExpenses))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MedicalLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Medical))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MedicalLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Tax))
+                .addGap(76, 76, 76)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CalculateButton)
                     .addComponent(ClearButton))
-                .addGap(19, 19, 19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(TotalTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(3, 3, 3)))
                 .addContainerGap())
         );
@@ -208,51 +324,120 @@ public class Expenses extends javax.swing.JInternalFrame {
     private void CalculateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalculateButtonActionPerformed
       
        
-          tmp.setMedicalExpense(Double.parseDouble(MedicalTxt.getText())); 
-          tmp.setTax(Double.parseDouble(TaxTxt.getText()));
-            tmp.setDailyExpense(Double.parseDouble(DailyTxt.getText()));
-        tmp.setMonthlyBills(Double.parseDouble(MonthlyTxt.getText()));
-        
-                
-     
-       double x = tmp.getTotalExpense();
-       TotalTxt.setText(String.valueOf(fmt.format(x)));
-       MedicalTxt.setText(String.valueOf(fmt.format(tmp.getMedicalExpense())));
-       TaxTxt.setText(String.valueOf(fmt.format(tmp.getTax())));
-       DailyTxt.setText(String.valueOf(fmt.format(tmp.getDailyExpense())));
-       MonthlyTxt.setText(String.valueOf(fmt.format(tmp.getMonthlyBills())));
+
+try{
+            tmp.setTax(Double.parseDouble(Tax.getText()));
+            tmp.setConsumersEnergy(Double.parseDouble(Consumer.getText()));
+            tmp.setElectricity(Double.parseDouble(Electricity.getText()));
+            tmp.setEntertainment(Double.parseDouble(Entertainment.getText()));
+            tmp.setGas(Double.parseDouble(Gas.getText()));
+            tmp.setGroceries(Double.parseDouble(Gas.getText()));
+            tmp.setMedicalExpense(Double.parseDouble(Medical.getText()));
+            tmp.setOtherMonthlyExpenses(Double.parseDouble(OtherExpenses.getText()));
+            
+            double x = tmp.getTotalExpense();
+            TotalTxt.setText(String.valueOf(fmt.format(x)));
+            Entertainment.setText(String.valueOf(fmt.format(tmp.getEntertainment())));
+            Electricity.setText(String.valueOf(fmt.format(tmp.getElectricity())));
+            Groceries.setText(String.valueOf(fmt.format(tmp.getGroceries())));
+            Gas.setText(String.valueOf(fmt.format(tmp.getGas())));
+            Medical.setText(String.valueOf(fmt.format(tmp.getMedicalExpense())));
+            Consumer.setText(String.valueOf(fmt.format(tmp.getConsumersEnergy())));
+            Tax.setText(String.valueOf(fmt.format(tmp.getTax())));
+            OtherExpenses.setText(String.valueOf(fmt.format(tmp.getotherMonthlyExpenses())));
+            
+} catch(Exception e){
+    JOptionPane.showMessageDialog(null, "Error Occured: " + e.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
+}
+            
     }//GEN-LAST:event_CalculateButtonActionPerformed
 
-    private void TaxTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TaxTxtActionPerformed
+    private void EntertainmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntertainmentActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TaxTxtActionPerformed
+    }//GEN-LAST:event_EntertainmentActionPerformed
 
     private void ClearButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ClearButtonMouseClicked
        
         
-        TaxTxt.setText("");
-        MedicalTxt.setText("");
-        DailyTxt.setText("");
-        MonthlyTxt.setText("");
+        Entertainment.setText("");
+        Electricity.setText("");
+        Groceries.setText("");
+        Gas.setText("");
         TotalTxt.setText("");
+        Medical.setText("");
+        Consumer.setText("");
+        Tax.setText("");
+        OtherExpenses.setText("");
     }//GEN-LAST:event_ClearButtonMouseClicked
 
-    private void DailyTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DailyTxtActionPerformed
+    private void GroceriesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GroceriesActionPerformed
         
-    }//GEN-LAST:event_DailyTxtActionPerformed
+    }//GEN-LAST:event_GroceriesActionPerformed
+
+    private void ShowGraphActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowGraphActionPerformed
+         
+
+           
+try{
+            DefaultPieDataset dcd = new DefaultPieDataset();
+            
+            double xEnt = tmp.getEntertainment()/tmp.getTotalExpense();
+            double xElec = tmp.getElectricity()/tmp.getTotalExpense();
+            double xGroc = tmp.getGroceries()/tmp.getTotalExpense();
+            double xGas = tmp.getGas()/tmp.getTotalExpense();
+            double xMed = tmp.getMedicalExpense()/tmp.getTotalExpense();
+            double xCons = tmp.getConsumersEnergy()/tmp.getTotalExpense();
+            double xTax = tmp.getTax()/tmp.getTotalExpense();
+            double xOth = tmp.getotherMonthlyExpenses()/tmp.getTotalExpense();
+            
+            dcd.setValue("Entertainment " + per.format(xEnt), tmp.getEntertainment());
+            dcd.setValue("Electricity " + per.format(xElec), tmp.getElectricity());
+            dcd.setValue("Groceries " + per.format(xGroc), tmp.getGroceries());
+            dcd.setValue("Gas " + per.format(xGas), tmp.getGas());
+            dcd.setValue("Medical " + per.format(xMed), tmp.getMedicalExpense());
+            dcd.setValue("Consumers Energy " + per.format(xCons), tmp.getConsumersEnergy());
+            dcd.setValue("Tax " + per.format(xTax), tmp.getTax());
+            dcd.setValue("Other Expenses " + per.format(xOth), tmp.getotherMonthlyExpenses());
+                    
+            JFreeChart j = ChartFactory.createPieChart("Expenses", dcd, true, true, false);
+
+
+            ChartFrame frame = new ChartFrame("Expenses",j);
+            frame.setVisible(true);
+            frame.setSize(600,800);
+
+       
+        
+            
+            
+} catch (Exception e){
+    JOptionPane.showMessageDialog(null, "Error Occured: " + e.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
+}
+                    
+                      
+    }//GEN-LAST:event_ShowGraphActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CalculateButton;
     private javax.swing.JButton ClearButton;
-    private javax.swing.JLabel DailyLabel;
-    private javax.swing.JTextField DailyTxt;
+    private javax.swing.JTextField Consumer;
+    private javax.swing.JTextField Electricity;
+    private javax.swing.JTextField Entertainment;
+    private javax.swing.JTextField Gas;
+    private javax.swing.JTextField Groceries;
+    private javax.swing.JTextField Medical;
     private javax.swing.JLabel MedicalLabel;
-    private javax.swing.JTextField MedicalTxt;
+    private javax.swing.JLabel MedicalLabel1;
+    private javax.swing.JLabel MedicalLabel2;
+    private javax.swing.JLabel MedicalLabel3;
+    private javax.swing.JLabel MedicalLabel4;
     private javax.swing.JLabel MonthlyLabel;
-    private javax.swing.JTextField MonthlyTxt;
+    private javax.swing.JLabel MonthlyLabel1;
+    private javax.swing.JTextField OtherExpenses;
+    private javax.swing.JButton ShowGraph;
+    private javax.swing.JTextField Tax;
     private javax.swing.JLabel TaxLabel;
-    private javax.swing.JTextField TaxTxt;
     private javax.swing.JTextField TotalTxt;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
